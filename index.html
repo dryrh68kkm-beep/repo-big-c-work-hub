@@ -1,299 +1,349 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light only">
-<title>Big C Work Hub</title>
-<style>
-  /* ===================== ตั้งค่าลิงก์ปลายทางตรงนี้ ===================== */
-  /* แก้ URL ในไฟล์ script ด้านล่างสุด (LINKS object) ได้เลย ไม่ต้องแตะส่วนอื่น */
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5fbfd">
+  <meta name="color-scheme" content="light only">
+  <meta name="description" content="ศูนย์รวมระบบงาน LP สาขาไทรน้อย">
+  <title>LP Work Hub — สาขาไทรน้อย</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,0,0&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light only;
+      --page: #f5fbfd;
+      --surface: #ffffff;
+      --ink: #152633;
+      --muted: #667985;
+      --line: #dcebef;
+      --blue: #31aaf2;
+      --blue-deep: #168bd4;
+      --blue-soft: #e8f7ff;
+      --teal: #38c9c5;
+      --teal-deep: #159f9b;
+      --teal-soft: #e7faf8;
+      --aqua: #75d9e3;
+      --aqua-deep: #2999a7;
+      --aqua-soft: #eefbfc;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --shadow: 0 14px 34px rgba(28, 108, 137, 0.09);
+    }
 
-  html{ color-scheme: light only; }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  :root{
-    --bg: #f6f7f9;
-    --ink: #14171a;
-    --muted: #8a9099;
-    --card-radius: 26px;
-    --green-solid: #1f9d55;
-    --green-tint: #e7f5ec;
-    --green-tint2: #d9f0e2;
-    --blue-solid: #2f6fed;
-    --blue-tint: #eaf1fe;
-    --blue-tint2: #dce9fd;
-    --violet-solid: #6d4de6;
-    --violet-tint: #efecfc;
-    --violet-tint2: #e2ddf9;
-  }
+    html {
+      min-height: 100%;
+      background: var(--page);
+    }
 
-  *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      min-height: 100%;
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: "Noto Sans Thai", "Leelawadee UI", Tahoma, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-  html, body{
-    margin:0; padding:0; height:100%;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Thai", "Helvetica Neue", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+    .shell {
+      width: min(100%, 1160px);
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: max(22px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
+    }
 
-  .screen{
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    padding: max(20px, env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom));
-  }
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
 
-  /* ---------- Header ---------- */
-  .header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom: 34px;
-  }
-  .brand{ display:flex; align-items:center; gap:12px; }
-  .logo-mark{
-    width:46px; height:46px; border-radius:13px;
-    background: linear-gradient(155deg, #9ed94f, #6cbf2a);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 3px 8px rgba(90,160,30,0.25);
-    flex-shrink:0;
-  }
-  .logo-mark span{
-    color:#d21f1f; font-weight:800; font-size:16px;
-    font-style:italic; letter-spacing:-1px;
-  }
-  .brand-text h1{
-    margin:0; font-size:21px; font-weight:800; letter-spacing:-0.3px; line-height:1.1;
-    color: var(--ink) !important;
-  }
-  .brand-text p{
-    margin:2px 0 0; font-size:11px; color: var(--muted) !important;
-    letter-spacing:2px; font-weight:600;
-  }
-  .bell{
-    width:44px; height:44px; border-radius:50%;
-    background:#fff; border:1px solid rgba(0,0,0,0.05);
-    display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 2px 6px rgba(20,23,26,0.06);
-    position:relative; flex-shrink:0;
-  }
-  .bell .dot{
-    position:absolute; top:9px; right:10px;
-    width:7px; height:7px; border-radius:50%;
-    background:#e0433a; border:1.5px solid #fff;
-  }
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      object-fit: contain;
+    }
 
-  /* ---------- Greeting ---------- */
-  .greeting{ text-align:center; margin-bottom: 26px; }
-  .greeting h2{
-    margin:0 0 6px; font-size:22px; font-weight:800; letter-spacing:-0.3px;
-    color: var(--ink) !important;
-  }
-  .greeting p{ margin:0; font-size:14.5px; color: var(--muted) !important; }
+    .brand-name {
+      margin: 0;
+      font-size: clamp(20px, 4.8vw, 25px);
+      font-weight: 800;
+      letter-spacing: -0.45px;
+      line-height: 1.12;
+    }
 
-  /* ---------- Cards ---------- */
-  .cards{
-    display:flex; gap:12px;
-    align-items: stretch;
-  }
-  .card{
-    flex:1; min-width:0;
-    border-radius: var(--card-radius);
-    padding: 18px 12px 20px;
-    display:flex; flex-direction:column; align-items:center; text-align:center;
-    border:none; cursor:pointer; font-family:inherit;
-    -webkit-appearance:none; appearance:none;
-    position:relative;
-    color: var(--ink);
-  }
-  .card.green{ background: linear-gradient(165deg, var(--green-tint), var(--green-tint2)); }
-  .card.blue{ background: linear-gradient(165deg, var(--blue-tint), var(--blue-tint2)); }
-  .card.violet{ background: linear-gradient(165deg, var(--violet-tint), var(--violet-tint2)); }
+    .branch {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
 
-  .badge{
-    position:absolute; top:14px; right:14px;
-    width:30px; height:30px; border-radius:50%;
-    background:#fff; display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 2px 5px rgba(20,23,26,0.08);
-  }
-  .badge svg{ width:15px; height:15px; }
+    .intro {
+      margin: 48px 0 26px;
+    }
 
-  .icon-tile{
-    width:64px; height:64px; border-radius:20px;
-    display:flex; align-items:center; justify-content:center;
-    margin: 6px 0 16px;
-    box-shadow: 0 8px 16px -6px rgba(20,23,26,0.28);
-  }
-  .card.green .icon-tile{ background: linear-gradient(160deg, #35b96a, #178a48); }
-  .card.blue .icon-tile{ background: linear-gradient(160deg, #4d8cff, #2058d6); }
-  .card.violet .icon-tile{ background: linear-gradient(160deg, #8768f0, #5c3ad6); }
-  .icon-tile svg{ width:30px; height:30px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      margin-bottom: 13px;
+      padding: 5px 11px;
+      border: 1px solid #c9ecee;
+      border-radius: 999px;
+      background: #eefcfc;
+      color: var(--teal-deep);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
 
-  .card h3{
-    margin:0 0 6px; font-size:15px; font-weight:800; line-height:1.25;
-    min-height: 38px; display:flex; align-items:center;
-    color: var(--ink) !important;
-  }
-  .card p{
-    margin:0 0 16px; font-size:11.5px; color:#5b6470 !important; line-height:1.4;
-    min-height: 30px;
-  }
-  .go{
-    width:36px; height:36px; border-radius:50%;
-    background:#fff; display:flex; align-items:center; justify-content:center;
-    box-shadow: 0 2px 6px rgba(20,23,26,0.08);
-    margin-top:auto;
-  }
-  .go svg{ width:16px; height:16px; }
-  .card.green .go svg{ stroke: var(--green-solid); }
-  .card.blue .go svg{ stroke: var(--blue-solid); }
-  .card.violet .go svg{ stroke: var(--violet-solid); }
-  .card.green .badge svg{ stroke: var(--green-solid); }
-  .card.blue .badge svg{ stroke: var(--blue-solid); }
-  .card.violet .badge svg{ stroke: var(--violet-solid); }
+    .intro h2 {
+      margin: 0;
+      font-size: clamp(30px, 8vw, 46px);
+      font-weight: 850;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+    }
 
-  .card:active{ transform: scale(0.97); transition: transform .1s ease; }
+    .intro p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
-  /* ---------- Bottom nav ---------- */
-  .bottom-nav{
-    margin-top:auto;
-    padding-top: 40px;
-    display:flex; justify-content:center;
-  }
-  .nav-item{
-    display:flex; flex-direction:column; align-items:center; gap:4px;
-    color: var(--green-solid);
-  }
-  .nav-item span{ font-size:11px; font-weight:600; }
-  .nav-item svg{ width:22px; height:22px; }
+    .apps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
 
-  /* ---------- Toast for unset links ---------- */
-  .toast{
-    position:fixed; left:20px; right:20px; bottom:26px;
-    background:#14171a; color:#fff; padding:12px 16px; border-radius:14px;
-    font-size:13px; text-align:center; opacity:0; pointer-events:none;
-    transform: translateY(8px);
-    transition: opacity .18s ease, transform .18s ease;
-  }
-  .toast.show{ opacity:1; transform:translateY(0); }
-</style>
+    .app-card {
+      --accent: var(--blue);
+      --accent-deep: var(--blue-deep);
+      --tint: var(--blue-soft);
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr) 44px;
+      align-items: center;
+      gap: 15px;
+      min-height: 112px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      color: var(--ink);
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .app-card.b2b {
+      --accent: var(--teal);
+      --accent-deep: var(--teal-deep);
+      --tint: var(--teal-soft);
+    }
+
+    .app-card.incident {
+      --accent: var(--aqua);
+      --accent-deep: var(--aqua-deep);
+      --tint: var(--aqua-soft);
+    }
+
+    .app-icon {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      place-items: center;
+      border-radius: var(--radius-md);
+      background: var(--tint);
+      color: var(--accent-deep);
+    }
+
+    .material-symbols-rounded {
+      font-size: 31px;
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+    }
+
+    .app-copy {
+      min-width: 0;
+    }
+
+    .app-copy h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.25px;
+      line-height: 1.3;
+    }
+
+    .app-copy p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .open-icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--tint);
+      color: var(--accent-deep);
+    }
+
+    .open-icon .material-symbols-rounded {
+      font-size: 23px;
+    }
+
+    .app-card:hover {
+      border-color: color-mix(in srgb, var(--accent) 55%, white);
+      box-shadow: 0 18px 40px rgba(28, 108, 137, 0.14);
+      transform: translateY(-3px);
+    }
+
+    .app-card:active {
+      transform: scale(0.985);
+    }
+
+    .app-card:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--accent) 42%, white);
+      outline-offset: 4px;
+    }
+
+    .helper {
+      margin: 24px 0 0;
+      color: #7b8d96;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (min-width: 760px) {
+      .shell {
+        padding: 34px 32px 40px;
+      }
+
+      .intro {
+        margin: 82px 0 34px;
+      }
+
+      .apps {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .app-card {
+        grid-template-columns: 1fr 44px;
+        grid-template-rows: auto auto;
+        min-height: 286px;
+        padding: 24px;
+      }
+
+      .app-icon {
+        grid-column: 1 / -1;
+        width: 72px;
+        height: 72px;
+        align-self: start;
+      }
+
+      .app-copy {
+        align-self: end;
+      }
+
+      .app-copy h3 {
+        font-size: 20px;
+      }
+
+      .app-copy p {
+        min-height: 42px;
+        font-size: 14px;
+      }
+
+      .open-icon {
+        align-self: end;
+      }
+
+      .helper {
+        margin-top: 30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="screen">
-
-  <div class="header">
-    <div class="brand">
-      <div class="logo-mark"><span>LP</span></div>
-      <div class="brand-text">
-        <h1>Big C</h1>
-        <p>WORK TOGETHER</p>
+  <main class="shell">
+    <header class="topbar" aria-label="LP Work Hub">
+      <img class="brand-logo" src="assets/lp-logo.png" alt="โลโก้ LP">
+      <div>
+        <h1 class="brand-name">LP Work Hub</h1>
+        <p class="branch">สาขาไทรน้อย</p>
       </div>
-    </div>
-    <div class="bell">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14171a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
-        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-      </svg>
-      <div class="dot"></div>
-    </div>
-  </div>
+    </header>
 
-  <div class="greeting">
-    <h2>สวัสดีครับ 👋</h2>
-    <p>เลือกงานที่คุณต้องการใช้งาน</p>
-  </div>
+    <section class="intro" aria-labelledby="page-title">
+      <span class="eyebrow">WORK TOGETHER</span>
+      <h2 id="page-title">พร้อมเริ่มงาน</h2>
+      <p>เลือกระบบที่ต้องการใช้งาน</p>
+    </section>
 
-  <div class="cards">
+    <nav class="apps" aria-label="ระบบงาน">
+      <a class="app-card lp" href="https://dryrh68kkm-beep.github.io/Lp-daily-reports-/">
+        <span class="app-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">query_stats</span>
+        </span>
+        <span class="app-copy">
+          <h3>สรุปงาน LP</h3>
+          <p>รายงาน Loss Prevention รายวัน</p>
+        </span>
+        <span class="open-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">arrow_forward</span>
+        </span>
+      </a>
 
-    <button class="card green" data-key="lp">
-      <div class="badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v2H9z"/><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M8 12h8M8 16h5"/></svg>
-      </div>
-      <div class="icon-tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 15l4-4 3 3 5-6"/></svg>
-      </div>
-      <h3>สรุปงาน LP</h3>
-      <p>รายงาน Loss Prevention รายวัน</p>
-      <div class="go">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-    </button>
+      <a class="app-card b2b" href="https://dryrh68kkm-beep.github.io/B2B-PJS/app.html?v=99">
+        <span class="app-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">description</span>
+        </span>
+        <span class="app-copy">
+          <h3>B2B/PJS Sainoi</h3>
+          <p>ระบบ B2B / PJS สาขาไทรน้อย</p>
+        </span>
+        <span class="open-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">arrow_forward</span>
+        </span>
+      </a>
 
-    <button class="card blue" data-key="b2b">
-      <div class="badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1-5h16l1 5"/><path d="M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M9 13a2 2 0 0 0 4 0"/></svg>
-      </div>
-      <div class="icon-tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M15 3v4h4"/><path d="M9 13h6M9 16h6"/></svg>
-      </div>
-      <h3>B2B/PJS<br>Sainoi</h3>
-      <p>ระบบ B2B / PJS สาขาสายไหม</p>
-      <div class="go">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-    </button>
+      <a class="app-card incident" href="https://dryrh68kkm-beep.github.io/24h-incident-report/">
+        <span class="app-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">assignment_late</span>
+        </span>
+        <span class="app-copy">
+          <h3>24H Incident Report</h3>
+          <p>รายงานเหตุการณ์ 24 ชั่วโมง</p>
+        </span>
+        <span class="open-icon" aria-hidden="true">
+          <span class="material-symbols-rounded">arrow_forward</span>
+        </span>
+      </a>
+    </nav>
 
-    <button class="card violet" data-key="incident">
-      <div class="badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-      </div>
-      <div class="icon-tile">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 12a8 8 0 1 1-3-6.2"/><path d="M20 3v4h-4"/>
-        </svg>
-      </div>
-      <h3>24H Incident<br>Report</h3>
-      <p>รายงานเหตุการณ์ 24 ชั่วโมง</p>
-      <div class="go">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-    </button>
-
-  </div>
-
-  <div class="bottom-nav">
-    <div class="nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
-      <span>หน้าหลัก</span>
-    </div>
-  </div>
-
-</div>
-
-<div class="toast" id="toast">ยังไม่ได้ตั้งค่าลิงก์นี้</div>
-
-<script>
-  // ===================== แก้ลิงก์ปลายทางตรงนี้ =====================
-  // ใส่ค่าว่าง "" ไว้ = ยังไม่ตั้งค่า จะขึ้นข้อความเตือนแทนการเปิดหน้าเปล่า
-  const LINKS = {
-    lp:       "https://dryrh68kkm-beep.github.io/Lp-daily-reports-/",
-    b2b:      "https://dryrh68kkm-beep.github.io/B2B-PJS/app.html?v=99",
-    incident: "https://dryrh68kkm-beep.github.io/24h-incident-report/"
-  };
-
-  const toast = document.getElementById('toast');
-  let toastTimer;
-  function showToast(msg){
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(()=> toast.classList.remove('show'), 1800);
-  }
-
-  document.querySelectorAll('.card').forEach(card=>{
-    card.addEventListener('click', ()=>{
-      const key = card.getAttribute('data-key');
-      const url = LINKS[key];
-      if(url){
-        window.location.href = url;
-      } else {
-        showToast('ยังไม่ได้ตั้งค่าลิงก์นี้');
-      }
-    });
-  });
-</script>
-
+    <p class="helper">แตะเมนูเพื่อเปิดระบบ</p>
+  </main>
 </body>
 </html>
