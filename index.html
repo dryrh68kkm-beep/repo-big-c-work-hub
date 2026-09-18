@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f5fbfd">
+  <meta name="theme-color" content="#f7fbfd">
   <meta name="color-scheme" content="light only">
   <meta name="description" content="ศูนย์รวมระบบงาน LP สาขาไทรน้อย">
   <meta name="mobile-web-app-capable" content="yes">
@@ -11,297 +11,131 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="LP Work Hub">
   <title>LP Work Hub — สาขาไทรน้อย</title>
-  <link rel="manifest" href="site.webmanifest?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=2">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=2">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,0,0&display=swap" rel="stylesheet">
+  <link rel="manifest" href="site.webmanifest?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=3">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3">
   <style>
-    :root {
-      color-scheme: light only;
-      --page: #f5fbfd;
-      --surface: #ffffff;
-      --ink: #152633;
-      --muted: #667985;
-      --line: #dcebef;
-      --blue: #31aaf2;
-      --blue-deep: #168bd4;
-      --blue-soft: #e8f7ff;
-      --teal: #38c9c5;
-      --teal-deep: #159f9b;
-      --teal-soft: #e7faf8;
-      --aqua: #75d9e3;
-      --aqua-deep: #2999a7;
-      --aqua-soft: #eefbfc;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --shadow: 0 14px 34px rgba(28, 108, 137, 0.09);
+    :root{
+      color-scheme:light only;
+      --page:#f7fbfd;
+      --surface:#fff;
+      --ink:#142635;
+      --muted:#748592;
+      --line:#e2edf2;
+      --shadow:0 12px 28px rgba(40,105,132,.09);
+      --radius:28px;
     }
-
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;min-height:100%;background:var(--page)}
+    body{
+      color:var(--ink);
+      font-family:"Noto Sans Thai","Leelawadee UI",Tahoma,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
-
-    html {
-      min-height: 100%;
-      background: var(--page);
+    .shell{
+      width:min(100%,1080px);
+      min-height:100dvh;
+      margin:0 auto;
+      padding:max(20px,env(safe-area-inset-top)) 20px max(22px,env(safe-area-inset-bottom));
+      display:flex;
+      flex-direction:column;
     }
-
-    body {
-      min-height: 100%;
-      margin: 0;
-      background: var(--page);
-      color: var(--ink);
-      font-family: "Noto Sans Thai", "Leelawadee UI", Tahoma, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+    .topbar{display:flex;align-items:center;gap:13px}
+    .brand-logo{width:54px;height:54px;flex:0 0 54px;object-fit:contain}
+    .brand-name{margin:0;font-size:clamp(21px,5vw,26px);font-weight:850;letter-spacing:-.55px;line-height:1.08}
+    .branch{margin:5px 0 0;color:var(--muted);font-size:13px;font-weight:650}
+    .intro{margin:30px 0 22px}
+    .intro h2{margin:0;font-size:clamp(30px,8.6vw,48px);font-weight:900;letter-spacing:-1.1px;line-height:1.03}
+    .intro p{margin:8px 0 0;color:var(--muted);font-size:15px;font-weight:550}
+    .apps{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
     }
-
-    .shell {
-      width: min(100%, 1160px);
-      min-height: 100dvh;
-      margin: 0 auto;
-      padding: max(22px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
+    .app-card{
+      position:relative;
+      display:flex;
+      min-width:0;
+      min-height:166px;
+      padding:16px 12px 15px;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.96);
+      color:var(--ink);
+      text-decoration:none;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease;
     }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      gap: 13px;
+    .app-card::after{
+      content:"";
+      position:absolute;
+      inset:auto -40% -65% -40%;
+      height:120px;
+      border-radius:50%;
+      background:var(--glow,#e9f8ff);
+      filter:blur(24px);
+      opacity:.7;
+      pointer-events:none;
     }
-
-    .brand-logo {
-      width: 58px;
-      height: 58px;
-      flex: 0 0 58px;
-      object-fit: contain;
+    .app-card.lp{--glow:#dff2ff}
+    .app-card.b2b{--glow:#def9f6}
+    .app-card.incident{--glow:#e2f1ff}
+    .app-card.liquor{--glow:#fff1d9}
+    .app-card.expiry{--glow:#e1f8e6}
+    .app-icon{
+      position:relative;
+      z-index:1;
+      width:104px;
+      height:104px;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 8px 10px rgba(44,98,126,.08));
+      user-select:none;
+      -webkit-user-drag:none;
     }
-
-    .brand-name {
-      margin: 0;
-      font-size: clamp(20px, 4.8vw, 25px);
-      font-weight: 800;
-      letter-spacing: -0.45px;
-      line-height: 1.12;
+    .app-name{
+      position:relative;
+      z-index:1;
+      margin:0;
+      max-width:100%;
+      font-size:15px;
+      font-weight:850;
+      line-height:1.25;
+      text-align:center;
+      letter-spacing:-.25px;
+      overflow-wrap:anywhere;
     }
-
-    .branch {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
+    .app-card:active{transform:scale(.975)}
+    .app-card:focus-visible{outline:3px solid #8dd6ff;outline-offset:3px}
+    .helper{margin:18px 0 0;color:#8b9aa4;font-size:12px;text-align:center}
+    @media (min-width:760px){
+      .shell{padding:32px}
+      .intro{margin:54px 0 28px}
+      .apps{grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+      .app-card{min-height:220px;padding:22px 14px}
+      .app-icon{width:128px;height:128px}
+      .app-name{font-size:17px}
+      .app-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(40,105,132,.14);border-color:#cfe5ee}
     }
-
-    .intro {
-      margin: 48px 0 26px;
+    @media (max-height:760px) and (max-width:759px){
+      .shell{padding-top:max(14px,env(safe-area-inset-top));padding-bottom:max(14px,env(safe-area-inset-bottom))}
+      .brand-logo{width:48px;height:48px;flex-basis:48px}
+      .intro{margin:20px 0 16px}
+      .intro h2{font-size:30px}
+      .apps{gap:10px}
+      .app-card{min-height:142px;padding:10px}
+      .app-icon{width:86px;height:86px}
+      .app-name{font-size:14px}
+      .helper{margin-top:12px}
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      margin-bottom: 13px;
-      padding: 5px 11px;
-      border: 1px solid #c9ecee;
-      border-radius: 999px;
-      background: #eefcfc;
-      color: var(--teal-deep);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.2px;
-    }
-
-    .intro h2 {
-      margin: 0;
-      font-size: clamp(30px, 8vw, 46px);
-      font-weight: 850;
-      letter-spacing: -1.2px;
-      line-height: 1.1;
-    }
-
-    .intro p {
-      margin: 9px 0 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .apps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .app-card {
-      --accent: var(--blue);
-      --accent-deep: var(--blue-deep);
-      --tint: var(--blue-soft);
-      display: grid;
-      grid-template-columns: 64px minmax(0, 1fr) 44px;
-      align-items: center;
-      gap: 15px;
-      min-height: 112px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-      color: var(--ink);
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-    }
-
-    .app-card.b2b {
-      --accent: var(--teal);
-      --accent-deep: var(--teal-deep);
-      --tint: var(--teal-soft);
-    }
-
-    .app-card.liquor {
-      --accent: var(--teal);
-      --accent-deep: var(--teal-deep);
-      --tint: var(--teal-soft);
-    }
-
-    .app-card.incident {
-      --accent: var(--aqua);
-      --accent-deep: var(--aqua-deep);
-      --tint: var(--aqua-soft);
-    }
-
-    .app-card.expiry {
-      --accent: #23b977;
-      --accent-deep: #087b4c;
-      --tint: #e6f8ef;
-    }
-
-    .app-icon {
-      display: grid;
-      width: 64px;
-      height: 64px;
-      place-items: center;
-      border-radius: var(--radius-md);
-      background: var(--tint);
-      color: var(--accent-deep);
-    }
-
-    .material-symbols-rounded {
-      font-size: 31px;
-      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
-    }
-
-    .app-copy {
-      min-width: 0;
-    }
-
-    .app-copy h3 {
-      margin: 0;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: -0.25px;
-      line-height: 1.3;
-    }
-
-    .app-copy p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
-    }
-
-    .open-icon {
-      display: grid;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--tint);
-      color: var(--accent-deep);
-    }
-
-    .open-icon .material-symbols-rounded {
-      font-size: 23px;
-    }
-
-    .app-card:hover {
-      border-color: color-mix(in srgb, var(--accent) 55%, white);
-      box-shadow: 0 18px 40px rgba(28, 108, 137, 0.14);
-      transform: translateY(-3px);
-    }
-
-    .app-card:active {
-      transform: scale(0.985);
-    }
-
-    .app-card:focus-visible {
-      outline: 3px solid color-mix(in srgb, var(--accent) 42%, white);
-      outline-offset: 4px;
-    }
-
-    .helper {
-      margin: 24px 0 0;
-      color: #7b8d96;
-      font-size: 12px;
-      text-align: center;
-    }
-
-    @media (min-width: 760px) {
-      .shell {
-        padding: 34px 32px 40px;
-      }
-
-      .intro {
-        margin: 82px 0 34px;
-      }
-
-      .apps {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
-      }
-
-      .app-card {
-        grid-template-columns: 1fr 44px;
-        grid-template-rows: auto auto;
-        min-height: 286px;
-        padding: 24px;
-      }
-
-      .app-icon {
-        grid-column: 1 / -1;
-        width: 72px;
-        height: 72px;
-        align-self: start;
-      }
-
-      .app-copy {
-        align-self: end;
-      }
-
-      .app-copy h3 {
-        font-size: 20px;
-      }
-
-      .app-copy p {
-        min-height: 42px;
-        font-size: 14px;
-      }
-
-      .open-icon {
-        align-self: end;
-      }
-
-      .helper {
-        margin-top: 30px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-      }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{transition-duration:.01ms!important}
     }
   </style>
 </head>
@@ -316,80 +150,38 @@
     </header>
 
     <section class="intro" aria-labelledby="page-title">
-      <span class="eyebrow">WORK TOGETHER</span>
       <h2 id="page-title">พร้อมเริ่มงาน</h2>
-      <p>เลือกระบบที่ต้องการใช้งาน</p>
+      <p>เลือกเครื่องมือที่ต้องการใช้งาน</p>
     </section>
 
     <nav class="apps" aria-label="ระบบงาน">
-      <a class="app-card lp" href="https://dryrh68kkm-beep.github.io/Lp-daily-reports-/">
-        <span class="app-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">query_stats</span>
-        </span>
-        <span class="app-copy">
-          <h3>สรุปงาน LP</h3>
-          <p>รายงาน Loss Prevention รายวัน</p>
-        </span>
-        <span class="open-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </span>
+      <a class="app-card lp" href="https://dryrh68kkm-beep.github.io/Lp-daily-reports-/" aria-label="เปิดสรุปงาน LP">
+        <img class="app-icon" src="assets/icons/lp-summary.svg" alt="">
+        <h3 class="app-name">สรุปงาน LP</h3>
       </a>
 
-      <a class="app-card b2b" href="https://dryrh68kkm-beep.github.io/B2B-PJS/app.html?v=99">
-        <span class="app-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">description</span>
-        </span>
-        <span class="app-copy">
-          <h3>B2B/PJS Sainoi</h3>
-          <p>ระบบ B2B / PJS สาขาไทรน้อย</p>
-        </span>
-        <span class="open-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </span>
+      <a class="app-card b2b" href="https://dryrh68kkm-beep.github.io/B2B-PJS/app.html?v=99" aria-label="เปิด B2B/PJS Sainoi">
+        <img class="app-icon" src="assets/icons/b2b-pjs.svg" alt="">
+        <h3 class="app-name">B2B/PJS Sainoi</h3>
       </a>
 
-      <a class="app-card incident" href="https://dryrh68kkm-beep.github.io/24h-incident-report/">
-        <span class="app-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">assignment_late</span>
-        </span>
-        <span class="app-copy">
-          <h3>24H Incident Report</h3>
-          <p>รายงานเหตุการณ์ 24 ชั่วโมง</p>
-        </span>
-        <span class="open-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </span>
+      <a class="app-card incident" href="https://dryrh68kkm-beep.github.io/24h-incident-report/" aria-label="เปิด 24H Incident Report">
+        <img class="app-icon" src="assets/icons/incident-24h.svg" alt="">
+        <h3 class="app-name">24H Incident Report</h3>
       </a>
 
-
-      <a class="app-card expiry" href="https://expiry-dashboard.dryrh68kkm.workers.dev/">
-        <span class="app-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">barcode_scanner</span>
-        </span>
-        <span class="app-copy">
-          <h3>สแกนสินค้าหมดอายุ</h3>
-          <p>สแกนบาร์โค้ด ตรวจวันหมดอายุ และแชร์ LINE</p>
-        </span>
-        <span class="open-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </span>
+      <a class="app-card liquor" href="https://dryrh68kkm-beep.github.io/app/?v=18b82ab" aria-label="เปิดตรวจนับสุรา">
+        <img class="app-icon" src="assets/icons/liquor-stock.svg" alt="">
+        <h3 class="app-name">ตรวจนับสุรา</h3>
       </a>
 
-      <a class="app-card liquor" href="https://dryrh68kkm-beep.github.io/app/?v=18b82ab">
-        <span class="app-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">inventory_2</span>
-        </span>
-        <span class="app-copy">
-          <h3>ตรวจนับสุรา</h3>
-          <p>ตรวจยอด Stockroom และ Sales Floor</p>
-        </span>
-        <span class="open-icon" aria-hidden="true">
-          <span class="material-symbols-rounded">arrow_forward</span>
-        </span>
+      <a class="app-card expiry" href="https://expiry-dashboard.dryrh68kkm.workers.dev/" aria-label="เปิดสแกนสินค้าหมดอายุ">
+        <img class="app-icon" src="assets/icons/expiry-scan.svg" alt="">
+        <h3 class="app-name">สแกนสินค้าหมดอายุ</h3>
       </a>
     </nav>
 
-    <p class="helper">แตะเมนูเพื่อเปิดระบบ</p>
+    <p class="helper">แตะไอคอนเพื่อเปิดระบบ</p>
   </main>
 </body>
 </html>
