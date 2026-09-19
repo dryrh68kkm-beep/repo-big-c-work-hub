@@ -12,12 +12,9 @@
   <linearGradient id="blue" x1="148" y1="90" x2="205" y2="184" gradientUnits="userSpaceOnUse">
     <stop stop-color="#67C5FF"/><stop offset="1" stop-color="#2E78E6"/>
   </linearGradient>
-  <filter id="s" x="-40%" y="-40%" width="180%" height="190%">
-    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#92704C" flood-opacity=".22"/>
-  </filter>
 </defs>
 <rect x="12" y="12" width="232" height="232" rx="54" fill="url(#bg)"/>
-<g filter="url(#s)">
+<g>
   <rect x="97" y="96" width="84" height="98" rx="20" fill="url(#box)"/>
   <rect x="119" y="96" width="28" height="35" rx="7" fill="#B87428"/>
   <path d="M67 70h42v24c0 8 7 12 9 19l10 58a17 17 0 0 1-17 20H65a17 17 0 0 1-17-20l10-58c2-7 9-11 9-19z" fill="url(#amber)"/>
