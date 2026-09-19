@@ -70,7 +70,7 @@
       text-decoration:none;
       box-shadow:var(--shadow);
       overflow:hidden;
-      transition:transform 150ms ease,box-shadow 150ms ease,border-color 150ms ease;
+      transition:box-shadow 140ms ease,border-color 140ms ease;
     }
     .app-card::after{
       content:"";
@@ -78,9 +78,8 @@
       inset:auto -40% -65% -40%;
       height:120px;
       border-radius:50%;
-      background:var(--glow,#e9f8ff);
-      filter:blur(24px);
-      opacity:.7;
+      background:radial-gradient(ellipse at center,var(--glow,#e9f8ff) 0%,rgba(255,255,255,0) 72%);
+      opacity:.55;
       pointer-events:none;
     }
     .app-card.lp{--glow:#dff2ff}
@@ -99,7 +98,6 @@
       height:108px;
       object-fit:contain;
       display:block;
-      filter:drop-shadow(0 8px 10px rgba(44,98,126,.08));
       user-select:none;
       -webkit-user-drag:none;
     }
@@ -120,7 +118,6 @@
       width:calc(50% - 7px);
       justify-self:center;
     }
-    .app-card:active{transform:scale(.975)}
     .app-card:focus-visible{outline:3px solid #8dd6ff;outline-offset:3px}
     .helper{margin:18px 0 0;color:#8b9aa4;font-size:12px;text-align:center}
     @media (min-width:760px){
@@ -131,7 +128,7 @@
       .app-card:last-child{grid-column:auto;width:auto;justify-self:stretch}
       .app-icon{width:128px;height:128px}
       .app-name{font-size:17px}
-      .app-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(40,105,132,.14);border-color:#cfe5ee}
+      .app-card:hover{box-shadow:0 18px 36px rgba(40,105,132,.14);border-color:#cfe5ee}
     }
     @media (max-height:760px) and (max-width:759px){
       .shell{padding-top:max(14px,env(safe-area-inset-top));padding-bottom:max(14px,env(safe-area-inset-bottom))}
@@ -167,27 +164,27 @@
 
     <nav class="apps" aria-label="ระบบงาน">
       <a class="app-card lp" href="https://dryrh68kkm-beep.github.io/Lp-daily-reports-/" aria-label="เปิดสรุปงาน LP">
-        <img class="app-icon" src="assets/icons/lp-summary-3d.webp" alt="">
+        <img class="app-icon" width="108" height="108" decoding="async" src="assets/icons/lp-summary-3d.webp" alt="">
         <h3 class="app-name">สรุปงาน LP</h3>
       </a>
 
       <a class="app-card b2b" href="https://dryrh68kkm-beep.github.io/B2B-PJS/app.html?v=99" aria-label="เปิด B2B/PJS Sainoi">
-        <img class="app-icon" src="assets/icons/b2b-pjs-photo.webp?v=11" alt="">
+        <img class="app-icon" width="108" height="108" decoding="async" src="assets/icons/b2b-pjs-photo.webp?v=11" alt="">
         <h3 class="app-name">B2B/PJS Sainoi</h3>
       </a>
 
       <a class="app-card expiry" href="https://expiry-dashboard.dryrh68kkm.workers.dev/mobile.html" aria-label="เปิดสแกนสินค้าหมดอายุ">
-        <img class="app-icon" src="assets/icons/expiry-scan-photo.webp?v=11" alt="">
+        <img class="app-icon" width="108" height="108" decoding="async" src="assets/icons/expiry-scan-photo.webp?v=11" alt="">
         <h3 class="app-name">สแกนสินค้าหมดอายุ</h3>
       </a>
 
       <a class="app-card incident" href="https://dryrh68kkm-beep.github.io/24h-incident-report/" aria-label="เปิด 24H Incident Report">
-        <img class="app-icon" src="assets/icons/incident-24h-crisp.svg?v=13" alt="">
+        <img class="app-icon" width="108" height="108" decoding="async" src="assets/icons/incident-24h-crisp.svg?v=13" alt="">
         <h3 class="app-name">24H Incident Report</h3>
       </a>
 
       <a class="app-card liquor" href="https://dryrh68kkm-beep.github.io/app/?v=18b82ab" aria-label="เปิดตรวจนับสุรา">
-        <img class="app-icon" src="assets/icons/liquor-stock-crisp.svg?v=13" alt="">
+        <img class="app-icon" width="108" height="108" decoding="async" src="assets/icons/liquor-stock-crisp.svg?v=13" alt="">
         <h3 class="app-name">ตรวจนับสุรา</h3>
       </a>
 
