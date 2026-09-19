@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3fff7"/><stop offset="1" stop-color="#e1f7e8"/></linearGradient>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66e570"/><stop offset="1" stop-color="#18a247"/></linearGradient>
+ <linearGradient id="scanner" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#aebbc8"/></linearGradient>
+ <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff7373"/><stop offset="1" stop-color="#e73535"/></linearGradient>
+ <filter id="sh" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#207a44" flood-opacity=".22"/></filter>
+</defs>
+<rect x="10" y="10" width="236" height="236" rx="52" fill="url(#bg)"/>
+<g filter="url(#sh)">
+ <path d="M48 101h132l-10 87a18 18 0 0 1-18 16H76a18 18 0 0 1-18-16z" fill="url(#g)"/>
+ <path d="M71 106c6-27 23-42 43-42s37 15 43 42" fill="none" stroke="#177b3c" stroke-width="11" stroke-linecap="round"/>
+ <g fill="#13783a"><rect x="78" y="130" width="12" height="46" rx="6"/><rect x="104" y="130" width="12" height="46" rx="6"/><rect x="130" y="130" width="12" height="46" rx="6"/></g>
+ <g transform="rotate(-7 115 82)">
+   <rect x="68" y="49" width="101" height="68" rx="15" fill="#fff"/>
+   <g fill="#354454"><rect x="83" y="63" width="5" height="36" rx="2"/><rect x="93" y="63" width="8" height="36" rx="2"/><rect x="106" y="63" width="5" height="36" rx="2"/><rect x="116" y="63" width="8" height="36" rx="2"/><rect x="130" y="63" width="5" height="36" rx="2"/><rect x="141" y="63" width="7" height="36" rx="2"/></g>
+ </g>
+ <g transform="translate(139 116)">
+   <path d="M17 0h42a18 18 0 0 1 18 18v27a18 18 0 0 1-18 18H34L23 92H5l11-30A18 18 0 0 1 0 45V17A17 17 0 0 1 17 0z" fill="url(#scanner)"/>
+   <rect x="10" y="11" width="57" height="28" rx="10" fill="#394756"/>
+   <path d="M15 26h48" stroke="#ff4747" stroke-width="5" stroke-linecap="round"/>
+ </g>
+ <circle cx="196" cy="72" r="29" fill="url(#red)"/>
+ <rect x="191" y="54" width="10" height="24" rx="5" fill="#fff"/><circle cx="196" cy="88" r="5" fill="#fff"/>
+</g></svg>
